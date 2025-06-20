@@ -37,7 +37,5 @@ app.get('/api/dogs', (req,res) => {
             res.json(dogs);
 
         });
-    }
 
-
-})
+});
