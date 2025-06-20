@@ -49,6 +49,7 @@ app.get('/api/walkrequests/open', (req, res) => {
                JOIN Users u ON d.owner_id = u.user_id
                where wr.status = 'open'
                `, (err,results) => {
+                if (err){
                 console.error(err);
                 return res.status(500).json({error:'Databse error'});
                }
