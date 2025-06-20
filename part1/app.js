@@ -19,7 +19,7 @@ db.connect(err => {
 });
 
 app.get('/api/dogs', (req,res) => {
-    const query = '
+    const query = `
         SELECT
             d.name AS dog_name,
             d.size,
