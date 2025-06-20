@@ -72,7 +72,8 @@ app.get('/api/walkrequests/open', (req, res) => {
             GROUP BY u.username
             `, (err, results) => {
                 if (err) {
-                    
+                    console.error(err);
+                    return res.status(500).json({})
                 }
             }
 
