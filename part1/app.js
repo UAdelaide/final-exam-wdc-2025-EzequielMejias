@@ -20,11 +20,13 @@ db.connect(err => {
 
 app.get('/api/dogs', (req,res) => {
     const query = '
-    SELECT
+        SELECT
         d.name AS dog_name,
         d.size,
         u.username AS owner
     FROM Dogs d
-    JOIN Users u ON d.owner_id
-    '
+    JOIN Users u ON d.owner_id = u.user_id
+    ';
+
+
 })
