@@ -41,4 +41,6 @@ app.get('/api/dogs', (req,res) => {
 });
 
 app.get('/api/walkrequests/open', (req, res) => {
-    db.query(`)
+    db.query(`
+        SELECT wr.request_id, d.name As dog
+        )
