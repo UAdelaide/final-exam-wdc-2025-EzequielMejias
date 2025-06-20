@@ -19,6 +19,8 @@ db.connect(err => {
 });
 
 app.get('/api/dogs', (req,res) => {
-    const query = ''
-    Selection
+    const query = '
+    SELECT
+        db.name AS dog
+    '
 })
