@@ -29,7 +29,9 @@ app.get('/api/dogs', (req,res) => {
         ';
 
         db.query(query, (err, dogs) => {
-            
+            if (err) {
+                console.error('Database error:')
+            }
 
         })
 
