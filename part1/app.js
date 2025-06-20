@@ -42,5 +42,6 @@ app.get('/api/dogs', (req,res) => {
 
 app.get('/api/walkrequests/open', (req, res) => {
     db.query(`
-        SELECT wr.request_id, d.name As dog
+        SELECT wr.request_id, d.name As dog_name, wr.requested_time,
+               wr
         )
