@@ -3,4 +3,7 @@ var mysql = require('mysql');
 var app = express();
 var PORT = 3000;
 
-const db = mysql.createConnection9{}
+const db = mysql.createConnection9{
+    host: 'localhost',
+    user: 'root'
+}
