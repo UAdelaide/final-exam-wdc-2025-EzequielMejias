@@ -25,5 +25,6 @@ app.get('/api/dogs', (req,res) => {
         d.size,
         u.username AS owner
     FROM Dogs d
+    JOIN Users u ON d.owner_id
     '
 })
