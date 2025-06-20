@@ -64,7 +64,7 @@ app.get('/api/walkrequests/open', (req, res) => {
             SELECT u.username AS walker_username,
                 COUNT(wr.rating) AS total_ratings,
                 AVG(wr.rating) AS average_rating,
-                COUNT(DISTINCT wa.request_id) AS completed walks
+                COUNT(DISTINCT wa.request_id) AS completed_walks
             FROM Users u
             LEFT JOIN WalkApplications wa ON u.user_id = wa.walker_id AND wa.status = 'accepted'
             LEFT JOIN WalkRatings wr ON wa.request_id = wr.request_id
