@@ -62,8 +62,8 @@ app.get('/api/walkrequests/open', (req, res) => {
     app.get('/api/walkers/summary', (req,res) => {
         db.query(`
             SELECT u.username AS walker_username,
-                COUNT(wr.rating AS total_ratings,
-                AVG)
+                COUNT(wr.rating) AS total_ratings,
+                AVG(wr.rating) AS average rating,
 
 
 
