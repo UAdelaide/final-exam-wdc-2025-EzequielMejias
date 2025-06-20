@@ -71,7 +71,9 @@ app.get('/api/walkrequests/open', (req, res) => {
             WHERE u.role = 'walker'
             GROUP BY u.username
             `, (err, results) => {
-                if
+                if (err) {
+                    
+                }
             }
 
 
