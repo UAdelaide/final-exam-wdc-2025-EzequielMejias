@@ -80,5 +80,5 @@ app.get('/api/walkrequests/open', (req, res) => {
             });
 
 app.listen(PORT, () => {
-    console.log
+    console.log('Server running on http://localhost:${PORT}')
 })
