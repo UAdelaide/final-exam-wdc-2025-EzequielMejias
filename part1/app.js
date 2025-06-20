@@ -73,7 +73,8 @@ app.get('/api/walkrequests/open', (req, res) => {
             `, (err, results) => {
                 if (err) {
                     console.error(err);
-                    return res.status(500).json({})
+                    return res.status(500).json({error:'Database error'});
+                }
                 }
             }
 
