@@ -32,10 +32,12 @@ app.get('/api/dogs', (req,res) => {
             if (err) {
                 console.error('Database error:', err);
                 return res.status(500).send('Databse error');
-                
-            }
 
-        })
+            }
+            res.json(dogs);
+
+        });
+    }
 
 
 })
