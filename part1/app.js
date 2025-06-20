@@ -20,5 +20,5 @@ db.connect(err => {
 
 app.get('/api/dogs', (req,res) => {
     const query = ''
-    SELE
+    Selection
 })
