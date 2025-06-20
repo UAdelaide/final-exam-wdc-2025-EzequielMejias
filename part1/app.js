@@ -50,7 +50,7 @@ app.get('/api/walkrequests/open', (req, res) => {
                where wr.status = 'open'
                `, (err,results) => {
                 console.error(err);
-                return res.status(500.json({}))
+                return res.status(500).json({error:'Databse error'});
                }
 
         )
