@@ -53,6 +53,7 @@ app.get('/api/walkrequests/open', (req, res) => {
                 return res.status(500).json({error:'Databse error'});
                }
                res.json(results);
-               }
+               });
 
-        )
+
+        });
