@@ -48,6 +48,9 @@ app.get('/api/walkrequests/open', (req, res) => {
                JOIN Dogs d ON wr.dog_id = d.dog_id
                JOIN Users u ON d.owner_id = u.user_id
                where wr.status = 'open'
-               `,
+               `, (err,results) => {
+                console.error(err);
+                return res.status(500.json({}))
+               }
 
         )
