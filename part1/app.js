@@ -31,7 +31,7 @@ app.get('/api/dogs', (req,res) => {
         db.query(query, (err, dogs) => {
             if (err) {
                 console.error('Database error:', err);
-                return res.status(500).send('Databse error');
+                return res.status(500).send('Database error');
 
             }
             res.json(dogs);
@@ -51,7 +51,7 @@ app.get('/api/walkrequests/open', (req, res) => {
                `, (err,results) => {
                 if (err){
                 console.error(err);
-                return res.status(500).json({error:'Databse error'});
+                return res.status(500).json({error:'Database error'});
                }
                res.json(results);
             });
