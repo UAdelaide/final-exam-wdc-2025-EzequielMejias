@@ -78,12 +78,3 @@ app.get('/api/walkrequests/open', (req, res) => {
                 res.json(results);
                 });
             });
-
-
-
-            )
-
-
-
-
-    })
