@@ -24,5 +24,6 @@ app.get('/api/dogs', (req,res) => {
         d.name AS dog_name,
         d.size,
         u.username AS owner
+    FROM Dogs d
     '
 })
