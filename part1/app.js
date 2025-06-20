@@ -78,3 +78,7 @@ app.get('/api/walkrequests/open', (req, res) => {
                 res.json(results);
                 });
             });
+
+app.listen(PORT, () => {
+    console.log
+})
