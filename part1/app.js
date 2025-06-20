@@ -17,3 +17,5 @@ db.connect(err => {
     console.log('Connected Succesfully to database');
 
 });
+
+app.get
