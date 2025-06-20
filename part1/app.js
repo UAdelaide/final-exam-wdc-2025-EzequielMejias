@@ -59,4 +59,10 @@ app.get('/api/walkrequests/open', (req, res) => {
 
     });
 
-    app.get('/api/walkers/summary')
+    app.get('/api/walkers/summary', (req,res) => {
+        db.query(`)
+
+
+
+
+    })
