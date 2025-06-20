@@ -3,8 +3,8 @@ var mysql = require('mysql');
 var app = express();
 var PORT = 3000;
 
-const db = mysql.createConnection{
+var db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    database: ''
-}
+    database: 'DogWalkService'
+});
