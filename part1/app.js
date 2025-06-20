@@ -18,4 +18,4 @@ db.connect(err => {
 
 });
 
-app.get
+app.get('/api/dogs', (req,res))
