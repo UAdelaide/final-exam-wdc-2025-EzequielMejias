@@ -26,7 +26,7 @@ app.get('/api/dogs', (req,res) => {
             u.username AS owner
         FROM Dogs d
         JOIN Users u ON d.owner_id = u.user_id
-        ';
+        `;
 
         db.query(query, (err, dogs) => {
             if (err) {
