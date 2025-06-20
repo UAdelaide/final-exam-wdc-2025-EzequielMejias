@@ -30,7 +30,9 @@ app.get('/api/dogs', (req,res) => {
 
         db.query(query, (err, dogs) => {
             if (err) {
-                console.error('Database error:')
+                console.error('Database error:', err);
+                return res.status(500).send('Databse error');
+                
             }
 
         })
