@@ -10,6 +10,8 @@ const db = mysql.createConnection({
 });
 
 db.connect(err => {
-    if(err)
+    if(err) {
+        console.error('Datbase connection failed:')
+    }
 
 })
