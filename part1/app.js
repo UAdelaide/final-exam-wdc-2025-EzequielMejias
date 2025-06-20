@@ -21,8 +21,8 @@ db.connect(err => {
 app.get('/api/dogs', (req,res) => {
     const query = '
     SELECT
-        db.name AS dog_name,
-        db.size,
-        undefined.username AS owner 
+        d.name AS dog_name,
+        d.size,
+        u.username AS owner
     '
 })
