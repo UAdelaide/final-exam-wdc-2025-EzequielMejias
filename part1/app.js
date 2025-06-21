@@ -79,7 +79,11 @@ app.get('/api/walkers/summary', (req,res) => {
             if (err) throw err;
             res.json(results);
         });
-            });
+        }catch (err) {
+         console.error('Error in /api/walkrequests/open:', err);
+        return res.status(500).send('Walk request fetching failure');
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
