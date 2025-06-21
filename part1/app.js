@@ -56,13 +56,10 @@ app.get('/api/walkrequests/open', (req, res) => {
             if (err) throw err;
             res.json(results);
         });
-     (err,results) => {
-                if (err){
-                console.error(err);
-                return res.status(500).json({error:'Database error'});
-               }
-               res.json(results);
-            });
+     }catch (err) {
+         console.error('Error in /api/walkreqe:', err);
+        return res.status(500).send('Database query error');
+    }
 
 
     });
