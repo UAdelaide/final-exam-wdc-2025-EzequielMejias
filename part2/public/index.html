@@ -10,11 +10,27 @@
 <body class="bg-light">
 
   <div id="app" class="container py-5">
-    <h1 class="mb-4 text-primary">{{ message }}</h1>
-    <p class="lead">Connect with trusted walkers for your beloved dog!</p>
-
-    <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
-    <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a>
+    <div class="card shadow" style="max-width: 400px; margin: 0 auto;">
+      <div class="card-body">
+        <h2 class="text-center mb-4 text-primary">Dog Walking Service</h2>
+        <form @submit.prevent="login">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" v-model="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" v-model="password" required>
+          </div>
+          <button type="submit" class="btn w-100" :disabled="loading" style="background:linear-gradient(45deg, #8B4513, #A0522D);
+          border:none; color:white; font-weight:bold;">
+            {{ loading ? 'Signing in...' : 'Sign In' }}
+          </button>
+        </form>
+        <div v-if="error" class="alert alert-danger mt-3">
+          {{ error }}
+        </div>
+      </div>
   </div>
 
   <script>
