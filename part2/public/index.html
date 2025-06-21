@@ -38,9 +38,39 @@
     createApp({
       data() {
         return {
-          message: 'Welcome to the Dog Walking Service!'
+          email: '',
+          password: '',
+          loading: false,
+          error: null
         };
+      },
+      methods: {
+        async login() {
+          this.loading = true;
+          this.error = null;
+          try {
+            const response = await fetch('/api/users/login',{
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                email: this.email, password: this.password
+              })
+            });
+            const data = await response.json();
+            if(!response.ok) {
+              this.error = data.error || 'Login error';
+              this.loading = false;
+              return;
+          }
+          window.location.href = data.redirectTo;
+        }catch (error) {
+          this.error = 'Error has occurred, please try again';
+        }
+        this.loading = false;
       }
+    }
     }).mount('#app');
   </script>
 
