@@ -50,8 +50,12 @@ app.get('/api/walkrequests/open', (req, res) => {
                JOIN Dogs d ON wr.dog_id = d.dog_id
                JOIN Users u ON d.owner_id = u.user_id
                where wr.status = 'open'
-               `,
-    
+               `;
+
+        db.query(query, (err, results) => {
+            if (err) throw err;
+            res.json(results);
+        });
      (err,results) => {
                 if (err){
                 console.error(err);
