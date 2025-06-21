@@ -15,6 +15,13 @@ app.use(session({
     cookie: { secure: false }
 }));
 
+app.use(session({
+    secret: 'dog_walker_secret'
+    resave: false,
+    saveUninitialized: false,
+    cookie: {secure:false}
+}));
+
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
