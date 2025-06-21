@@ -27,8 +27,8 @@
 
                     .then(response => response.json())
                     .then(data => {
-                        
-                    })
+                        dogImage.value= data.message;
+                    });
                 }
             }
         })
