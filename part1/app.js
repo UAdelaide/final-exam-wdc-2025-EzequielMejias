@@ -34,10 +34,10 @@ app.get('/api/dogs', (req,res) => {
             res.json(results);
         });
     }catch (err) {
-        
+
     }
-                console.error('Database error:', err);
-                return res.status(500).send('Database error');
+                console.error('Error in /api/dogs:', err);
+                return res.status(500).send('Database query error');
 
             }
             res.json(dogs);
