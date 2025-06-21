@@ -67,8 +67,8 @@ router.post('/logout', (req, res) => {
       return res.status(500).json({error: 'Logout failed'});
     }
     res.json({message: 'Logged out'});
-  })
-})
+  });
+});
 
 router.get('/my-dogs', async(req, res) => {
   if(!req.session.user) {

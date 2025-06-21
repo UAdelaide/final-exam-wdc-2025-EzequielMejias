@@ -83,7 +83,7 @@
             const res = await fetch(`/api/walks/${requestId}/apply`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: user })
+              body: JSON.stringify({ walker_id: currentUserId })
             });
             const result = await res.json();
 
@@ -99,7 +99,7 @@
 
         async function getCurrentUser() {
           try {
-            const response = await fetch('/api/user/me');
+            const response = await fetch('/api/users/me');
             if (!response.ok) throw new Error('Failed to get current user');
             const userData = await response.json();
             return userData.user_id;
@@ -118,7 +118,8 @@
           message,
           error,
           applyToWalk,
-          logout
+          logout,
+          getCurrentUser
         };
       }
     }).mount('#app');
