@@ -63,6 +63,19 @@ router.post('/login', async (req, res) => {
       WHERE email = ? and password_hash = ? `, [email, password]);
 
     if (rows.length === 0) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    req.session.user = rows[0];
+
+    res.json({
+      message: 'Login successful',
+      user: rows[0],
+      redirectTo: rows[0].role === 'owner' ? '/owner-dashboard.html' : '/walker-dashboard.html'
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Login failed' });
   }
+});
 
 module.exports = router;
