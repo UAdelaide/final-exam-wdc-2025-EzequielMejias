@@ -95,6 +95,18 @@
           }
         }
 
+        async function getCurrentUser() {
+          try {
+            const response = await fetch('/api/user/me');
+            if (!response.ok) throw new Error('Failed to get current user');
+            const userData = await response.json();
+            return userData.user_id;
+          } catch (err) {
+            error.value = 'Failed to get current user';
+            return null;
+          }
+        }
+
         onMounted(() => {
           loadWalkRequests();
         });
