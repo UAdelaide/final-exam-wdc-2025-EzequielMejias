@@ -93,19 +93,19 @@
 
         async function logout() {
           try {
-            const response = await fetch('/api/users/logout'), {
+            const response = await fetch('/api/users/logout', {
               method: 'POST',
-              headers: { 'Content-Type': 'application/json'}
+              headers: { 'Content-Type': 'application/json' }
             });
-            if (respinse.ok) {
+            if (response.ok) {
               window.location.href = '/index.html';
-             } else {
+            } else {
+              error.value = 'Logout failed';
+            }
+          } catch (err) {
             error.value = 'Logout failed';
-              } 
-      }catch (err) {
-            error.value = 'Logout failed';
+          }
         }
-      }
 
         async function submitWalkRequest() {
           try {
@@ -142,7 +142,8 @@
           walks,
           message,
           error,
-          submitWalkRequest
+          submitWalkRequest,
+          logout
         };
       }
     }).mount('#app');
