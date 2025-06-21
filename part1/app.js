@@ -33,7 +33,9 @@ app.get('/api/dogs', (req,res) => {
             if (err) throw err;
             res.json(results);
         });
+    }catch (err) {
         
+    }
                 console.error('Database error:', err);
                 return res.status(500).send('Database error');
 
