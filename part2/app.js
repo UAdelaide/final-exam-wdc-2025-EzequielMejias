@@ -19,8 +19,22 @@ app.use(session({
     secret: 'dog_walker_secret'
     resave: false,
     saveUninitialized: false,
-    cookie: {secure:false}
+    cookie: { secure: false}
 }));
+
+function requireLogin(req, res next) {
+    if(!req.session.user) {
+        return res.redirect('/index.html');
+    }
+    next();
+}
+app.get('/owner-dashboard.html', requireLogin, (req,res) => {
+    res.sendFile(path.join(__dirname, 'public', 'owner-dashboard.html'));
+});
+
+app.get('/walker-dashboard.html', requireLogin, (req,res) => {
+    res.sendFile(path.join(__dirname, 'public', 'walker-dashboard.html'));
+});
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
