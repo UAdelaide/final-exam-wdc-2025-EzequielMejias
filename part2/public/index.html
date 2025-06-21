@@ -30,8 +30,8 @@
         <div v-if="error" class="alert alert-danger mt-3">
           {{ error }}
         </div>
-        </div>
       </div>
+    </div>
   </div>
 
   <script>
@@ -64,14 +64,14 @@
               this.error = data.error || 'Login error';
               this.loading = false;
               return;
+            }
+            window.location.href = data.redirectTo;
+          } catch (error) {
+            this.error = 'Error has occurred, please try again';
           }
-          window.location.href = data.redirectTo;
-        } catch (error) {
-          this.error = 'Error has occurred, please try again';
+          this.loading = false;
         }
-        this.loading = false;
       }
-    }
     }).mount('#app');
   </script>
 
