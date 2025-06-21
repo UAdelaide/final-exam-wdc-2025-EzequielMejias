@@ -22,7 +22,7 @@
             setup() {
                 const dogImage=ref('');
 
-                const fetchRandomDog= ()=> {
+                const getRandomDog= ()=> {
                     fetch('https://dog.ceo/api/breeds/image/random')
 
                     .then(response => response.json())
@@ -30,7 +30,12 @@
                         dogImage.value= data.message;
                     });
                 };
-                
+                getRandomDog();
+
+                return {
+                    dogImage,
+                    
+                }
             }
         })
     </script>
