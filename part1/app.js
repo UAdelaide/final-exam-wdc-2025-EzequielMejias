@@ -35,15 +35,11 @@ app.get('/api/dogs', (req,res) => {
         });
     }catch (err) {
          console.error('Error in /api/dogs:', err);
-                return res.status(500).send('Database query error');
+        return res.status(500).send('Database query error');
     }
 
-
-            }
-
-        });
-
 });
+
 
 app.get('/api/walkrequests/open', (req, res) => {
     db.query(`
