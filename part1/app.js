@@ -29,7 +29,8 @@ app.get('/api/dogs', (req,res) => {
             JOIN Users u ON d.owner_id = u.user_id
             `;
 
-        db.query(query, (err, dogs) => {
+        db.query(query, (err, results) => {
+            if (err) throw err;
             if (err) {
                 console.error('Database error:', err);
                 return res.status(500).send('Database error');
