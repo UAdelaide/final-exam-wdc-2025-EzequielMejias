@@ -32,6 +32,8 @@ app.get('/api/dogs', (req,res) => {
         db.query(query, (err, results) => {
             if (err) throw err;
             res.json(results);
+        });
+        
                 console.error('Database error:', err);
                 return res.status(500).send('Database error');
 
