@@ -43,7 +43,7 @@ app.get('/api/dogs', (req,res) => {
 
 app.get('/api/walkrequests/open', (req, res) => {
     try {
-        db.query(`
+        const query = `
         SELECT wr.request_id, d.name As dog_name, wr.requested_time,
                wr.duration_minutes, wr.location, u.username AS owner_username
                FROM WalkRequests wr
@@ -51,7 +51,7 @@ app.get('/api/walkrequests/open', (req, res) => {
                JOIN Users u ON d.owner_id = u.user_id
                where wr.status = 'open'
                `,
-    }
+    
      (err,results) => {
                 if (err){
                 console.error(err);
