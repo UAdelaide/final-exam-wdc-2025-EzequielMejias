@@ -63,7 +63,7 @@ app.get('/api/walkrequests/open', (req, res) => {
 });
 
 app.get('/api/walkers/summary', (req,res) => {
-    try{ 
+    try{
     const query=`
             SELECT u.username AS walker_username,
                 COUNT(wr.rating) AS total_ratings,
@@ -74,13 +74,11 @@ app.get('/api/walkers/summary', (req,res) => {
             LEFT JOIN WalkRatings wr ON wa.request_id = wr.request_id
             WHERE u.role = 'walker'
             GROUP BY u.username
-            `, (err, results) => {
-                if (err) {
-                    console.error(err);
-                    return res.status(500).json({error:'Database error'});
-                }
-                res.json(results);
-                });
+            `;
+        db.query(query, (err, results) => {
+        if (err) throw err;
+            res.json(results);
+        });
             });
 
 app.listen(PORT, () => {
