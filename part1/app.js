@@ -75,8 +75,8 @@ app.get('/api/walkers/summary', (req,res) => {
             WHERE u.role = 'walker'
             GROUP BY u.username
             `;
-        db.query(query, (err, results) => {
-        if (err) throw err;
+            db.query(query, (err, results) => {
+            if (err) throw err;
             res.json(results);
         });
             });
