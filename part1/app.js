@@ -60,9 +60,7 @@ app.get('/api/walkrequests/open', (req, res) => {
          console.error('Error in /api/walkrequests/open:', err);
         return res.status(500).send('Walk request fetching failure');
     }
-
-
-    });
+});
 
     app.get('/api/walkers/summary', (req,res) => {
         db.query(`
