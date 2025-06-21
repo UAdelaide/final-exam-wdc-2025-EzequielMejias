@@ -8,21 +8,16 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
-}));
+
 
 app.use(session({
-    secret: 'dog_walker_secret'
+    secret: 'dog_walker_secret',
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false}
 }));
 
-function requireLogin(req, res next) {
+function requireLogin(req, res, next) {
     if(!req.session.user) {
         return res.redirect('/index.html');
     }
