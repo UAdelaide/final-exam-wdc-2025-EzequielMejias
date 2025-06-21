@@ -57,8 +57,8 @@ app.get('/api/walkrequests/open', (req, res) => {
             res.json(results);
         });
      }catch (err) {
-         console.error('Error in /api/walkreqe:', err);
-        return res.status(500).send('Database query error');
+         console.error('Error in /api/walkrequests/open:', err);
+        return res.status(500).send('Walk request fetching failure');
     }
 
 
